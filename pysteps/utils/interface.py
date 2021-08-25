@@ -187,6 +187,9 @@ def get_method(name, **kwargs):
     methods_objects["rbfinterp2d"] = interpolate.rbfinterp2d
     methods_objects["idwinterp2d"] = interpolate.idwinterp2d
 
+    # reprojection methods
+    methods_objects["reprojection"] = reprojection.reprojection
+
     # spectral methods
     methods_objects["rapsd"] = spectral.rapsd
     methods_objects["rm_rdisc"] = spectral.remove_rain_norain_discontinuity
