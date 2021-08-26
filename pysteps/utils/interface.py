@@ -21,6 +21,7 @@ from . import interpolate
 from . import spectral
 from . import tapering
 from . import transformation
+from . import reprojection
 
 
 def get_method(name, **kwargs):
