@@ -1,5 +1,6 @@
 from rasterio import Affine as A
 from rasterio.warp import reproject, Resampling
+import xarray as xr
 import numpy as np
 
 
@@ -37,6 +38,15 @@ def reprojection(R_src, R_dst):
         dst_crs=dst_crs,
         resampling=Resampling.nearest,
         dst_nodata=np.nan,
+    )
+
+    R_rprj = xr.DataArray(
+        data=R_rprj,
+        dims=("y", "x"),
+        coords=dict(
+            x=("x", R_dst.coords["x"]),
+            y=("y", R_dst.coords["y"]),
+        ),
     )
 
     return R_rprj
