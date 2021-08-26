@@ -48,6 +48,7 @@ def reprojection(R_src, R_dst):
             y=("y", R_dst.coords["y"].data),
         ),
     )
+    R_rprj.attrs.update(R_src.attrs)
     R_rprj.x.attrs.update(R_dst.x.attrs)
     R_rprj.y.attrs.update(R_dst.y.attrs)
     for key in ["projection", "yorigin", "xpixelsize", "ypixelsize"]:
